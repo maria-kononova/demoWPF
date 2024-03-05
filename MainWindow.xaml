@@ -1,0 +1,58 @@
+﻿<Window x:Class="demo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:demo"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="1000">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.RowSpan="3" Background="AliceBlue">
+            <TextBlock Text="ФИО:"/>
+            <TextBox x:Name="nameInput"/>
+            <TextBlock Text="Дата рождения:"/>
+            <DatePicker Name="dateInput"/>
+            <TextBlock Text="Пол:"/>
+            <DockPanel>
+                <CheckBox Name="sexInputMale" Content="Мужской" Checked="sexInputMale_Checked"/>
+                <CheckBox Name="sexInputFemale" Content="Женский" Checked="sexInputFemale_Checked"/>
+            </DockPanel>
+            <TextBlock Text="Образование:"/>
+            <ComboBox x:Name="educationList"/>
+            <TextBlock Text="Должность:"/>
+            <ComboBox Name="postList"/>
+            <TextBlock Text="Оклад:"/>
+            <TextBox Name="salaryInput" PreviewTextInput="salaryInput_PreviewTextInput"/>
+            <TextBlock Text="Премия:"/>
+            <DockPanel>
+                <RadioButton Name="primeInput3" Content="3%"/>
+                <RadioButton Name="primeInput5" Content="5%"/>
+                <RadioButton Name="primeInput10" Content="10%"/>
+                <RadioButton Name="primeInput15" Content="15%"/>
+            </DockPanel>
+            <Button Name="save" Content="Добавить" Click="save_Click"/>
+            <TextBlock Name="error"/>
+            <Separator/>
+            <Button Name="delete" Content="Удалить" Click="delete_Click"/>
+        </StackPanel>
+        <StackPanel Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="3" Background="AliceBlue">
+            <DockPanel>
+                <TextBlock Text="Список сотрудников:"/>
+                <TextBlock Text="Фильтр:"/>
+                <ComboBox Name="educationList2" SelectionChanged="educationList2_SelectionChanged"/>
+            </DockPanel>
+            <DataGrid Name="dataGrid" SelectionChanged="dataGrid_SelectionChanged"/>
+            <TextBlock Name="textBlock"/>
+        </StackPanel>
+    </Grid>
+</Window>
